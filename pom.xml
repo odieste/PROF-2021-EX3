@@ -15,18 +15,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<junit.platform.version>1.8.1</junit.platform.version>
 		<junit.jupiter.version>5.8.1</junit.jupiter.version>
+		<java.version>8</java.version>
 		<maven.version>3.8.0</maven.version>
 	</properties>
 
 	<dependencies>
 
 		<!-- Junit Jupiter dependencies -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -55,10 +50,23 @@
 		
 		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
 		<dependency>
-		    <groupId>org.mockito</groupId>
-		    <artifactId>mockito-all</artifactId>
-		    <version>1.10.19</version>
-		    <scope>test</scope>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>4.2.0</version>
+			<scope>test</scope>
+		</dependency>
+		<!--    https://www.baeldung.com/mockito-junit-5-extension  -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>4.2.0</version>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

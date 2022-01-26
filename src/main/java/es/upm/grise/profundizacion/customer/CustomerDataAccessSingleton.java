@@ -6,13 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-final public class CustomerDataAccessSingleton {
+public class CustomerDataAccessSingleton {
 	
 	private static final String url = "jdbc:mysql://profundizacion.grise.upm.es:3306/customers";
 	private static final String username = "root";
 	private static final String password = "1234";
 	
 	private static CustomerDataAccessSingleton instance;
+
+	private int customerId;
 
 	//
 	// Singleton access method
@@ -24,16 +26,22 @@ final public class CustomerDataAccessSingleton {
 			instance = new CustomerDataAccessSingleton();
 			return instance;
 		}
-		
 	}
 
 	//
 	// Constructor
-	private CustomerDataAccessSingleton() {
-		
+	public CustomerDataAccessSingleton() {
+		// Change to public constructor
 	}
+	public CustomerDataAccessSingleton(int id) {
+		this.customerId = id;
+	}
+
+	public int getCustomerId(){
+		return this.customerId;
+	}
+		
 	
-	//
 	// Get the shipping address from DB
 	public String getShippingAddress(int id) throws CustomerException, DatabaseException {
 		
@@ -91,5 +99,5 @@ final public class CustomerDataAccessSingleton {
 		return resultSetCustomer;	
 		
 	}
-	
+
 }
