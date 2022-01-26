@@ -4,12 +4,15 @@ public class CustomerDataAccessSigletonImp implements CustomerDataAccessSigleton
 
 	@Override
 	public String getShippingAddress(int id) throws CustomerException, DatabaseException {
-		return "Ship";
+		if (id == 0)
+			return "id0";
+		else
+			return "id1";
 	}
 
 	@Override
 	public String getInvoicingAddress(int id) throws CustomerException, DatabaseException {
-		return "address";
+		return "id0";
 	}
 
 }
