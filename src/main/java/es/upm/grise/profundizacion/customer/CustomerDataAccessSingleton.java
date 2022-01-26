@@ -30,7 +30,7 @@ final public class CustomerDataAccessSingleton {
 	//
 	// Constructor
 	private CustomerDataAccessSingleton() {
-		
+
 	}
 		
 	
@@ -44,12 +44,11 @@ final public class CustomerDataAccessSingleton {
 	//
 	// Get the invoicing address from DB
 	public String getInvoicingAddress(int id) throws CustomerException, DatabaseException {
-		
-		return getAddress(id, "invoicingAddress");
-		
+
+			return getAddress(id, "invoicingAddress");
 	}
-	
-	//
+
+
 	// Returns a String from a Customer record. Used to extract the addresses.
 	// In case of error, returns a generic "CustomerException" for customer-related problems
 	// For database problems, it returns a generic "DatabaseException"

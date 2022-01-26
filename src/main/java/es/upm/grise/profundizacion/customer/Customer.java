@@ -18,6 +18,12 @@ public class Customer {
 		this.invoicingAddress = CustomerDataAccessSingleton.getInstance().getInvoicingAddress(id);
 	}
 
+	Customer(int id, String shippingAddress, String invoicingAddress) throws CustomerException {
+		this.id =id;
+		this.invoicingAddress = invoicingAddress;
+		this.shippingAddress = shippingAddress;
+	}
+
 	// Checks if the shipping address is the same than the invoicing address
 	public boolean checkAddresses() throws NoAddressException, EmptyAddressException {
 		if(shippingAddress == null || invoicingAddress == null)
