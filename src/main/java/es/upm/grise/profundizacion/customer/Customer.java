@@ -14,8 +14,9 @@ public class Customer {
 	// When the customer is created, the id and addresses are loaded from the database
 	Customer(int id) throws CustomerException, DatabaseException {
 		this.id = id;
-		this.shippingAddress = CustomerDataAccessSingleton.getInstance().getShippingAddress(id);
-		this.invoicingAddress = CustomerDataAccessSingleton.getInstance().getInvoicingAddress(id);
+		CustomerDataAccessSingleton cda = new CustomerDataAccessSingleton();
+		this.shippingAddress = cda.getInstance().getShippingAddress(id);
+		this.invoicingAddress = cda.getInstance().getInvoicingAddress(id);
 	}
 
 	// Checks if the shipping address is the same than the invoicing address

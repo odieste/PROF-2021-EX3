@@ -13,15 +13,17 @@ public class smokeTest {
 	private CustomerDataAccessSingleton customerData;
 	
 	@Test
-	public void test() throws CustomerException, DatabaseException {
+	public void test() throws CustomerException, DatabaseException, NoAddressException, EmptyAddressException {
 		int CUSTOMERID = 1;
 		Customer customer = new Customer(CUSTOMERID);
+		assertTrue(customer.checkAddresses());
 	}
 	
 	@Test
-	public void test_distinto_address() throws CustomerException, DatabaseException {
+	public void test_distinto_address() throws CustomerException, DatabaseException, NoAddressException, EmptyAddressException {
 		int CUSTOMERID = 1;
 		Customer customer = new Customer(CUSTOMERID);
+		assertFalse(customer.checkAddresses());
 		
 	}
 	@Test
@@ -40,7 +42,7 @@ public class smokeTest {
 		int CUSTOMERID = 1;
 		customerData = mock(CustomerDataAccessSingleton.class);
 		when(customerData.getShippingAddress(CUSTOMERID)).thenReturn("Prueba1");
-		when(customerData.getInvoicingAddress(CUSTOMERID)).thenReturn("Prueba2");
+		when(customerData.getInvoicingAddress(CUSTOMERID)).thenReturn("1Prueba");
 		Customer customer = new Customer(CUSTOMERID);
 		assertFalse(customer.checkAddresses());
 	}
