@@ -7,8 +7,9 @@ public class smokeTest {
 	@Test
 	public void test() throws CustomerException, DatabaseException {
 		int CUSTOMERID = 1;
-		
-		Customer customer = new Customer(CUSTOMERID);
+		String a = "prueba1";
+		String b = "prueba2";
+		Customer customer = new Customer(CUSTOMERID,a, b);
 	}
 
 }

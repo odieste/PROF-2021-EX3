@@ -3,42 +3,42 @@ package es.upm.grise.profundizacion.customer;
 public class Customer {
 	
 	// Customer id
-	private int id;
+	protected int id;
 	
 	// Shipping address
-	private String shippingAddress;
+	protected String shippingAddress;
 	
 	// Invoicing address
-	private String invoicingAddress;
-	
+	protected String invoicingAddress;
+
 	// When the customer is created, the id and addresses are loaded from the database
-	Customer(int id) throws CustomerException, DatabaseException {
+	Customer(int id, String shippingAddress, String invoicingAddress) throws CustomerException, DatabaseException {
 		this.id = id;
-		this.shippingAddress = CustomerDataAccessSingleton.getInstance().getShippingAddress(id);
-		this.invoicingAddress = CustomerDataAccessSingleton.getInstance().getInvoicingAddress(id);
+		this.shippingAddress = shippingAddress;
+		this.invoicingAddress = invoicingAddress;
 	}
 
 	// Checks if the shipping address is the same than the invoicing address
-	public boolean checkAddresses() throws NoAddressException, EmptyAddressException {
-		if(shippingAddress == null || invoicingAddress == null)
-			throw new NoAddressException();
+	public boolean checkAddresses() throws NoAddressException, EmptyAddressException { //1
+		if(shippingAddress == null || invoicingAddress == null) //2
+			throw new NoAddressException(); //3
 		
-		if(shippingAddress.length() == 0 || invoicingAddress.length() == 0)
-			throw new EmptyAddressException();
+		if(shippingAddress.length() == 0 || invoicingAddress.length() == 0) //4
+			throw new EmptyAddressException(); //5
 		
-		if(shippingAddress.length() != invoicingAddress.length())
-			return false;
+		if(shippingAddress.length() != invoicingAddress.length()) //6
+			return false;  //7
 		
 		int stringLength = shippingAddress.length();
 		int index = 0;
 		
 		while(index < stringLength &&
-			  shippingAddress.charAt(index) == invoicingAddress.charAt(index))
-			index++;
+			  shippingAddress.charAt(index) == invoicingAddress.charAt(index)) //8
+			index++; //9
 		
-		if(index == stringLength)
-			return true;
+		if(index == stringLength)  //10
+			return true; //11
 		else
-			return false;
+			return false; //12
 	}	
 }
