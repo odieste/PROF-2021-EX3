@@ -3,6 +3,7 @@ package es.upm.grise.profundizacion.customer;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 
 public class smokeTest {
@@ -22,13 +23,15 @@ public class smokeTest {
 	}*/
 
 	@Test
-	public void checkAddressesMismoString(){
+	public void checkAddressesMismoString() throws EmptyAddressException, NoAddressException {
 		Customer customer = new Customer(1, "gato", "gato");
+		assertEquals(customer.checkAddresses(), true);
 	}
 
 	@Test
-	public void checkAddressesDistintoStringMismaLong(){
+	public void checkAddressesDistintoStringMismaLong() throws EmptyAddressException, NoAddressException {
 		Customer customer = new Customer(1, "gato", "pera");
+		assertEquals(customer.checkAddresses(), true);
 	}
 
 }
