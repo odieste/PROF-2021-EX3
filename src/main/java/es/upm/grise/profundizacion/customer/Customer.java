@@ -3,19 +3,23 @@ package es.upm.grise.profundizacion.customer;
 public class Customer {
 	
 	// Customer id
-	private int id;
+	 int id;
 	
 	// Shipping address
-	private String shippingAddress;
+	 String shippingAddress;
 	
 	// Invoicing address
-	private String invoicingAddress;
+	 String invoicingAddress;
 	
 	// When the customer is created, the id and addresses are loaded from the database
 	Customer(int id) throws CustomerException, DatabaseException {
 		this.id = id;
 		this.shippingAddress = CustomerDataAccessSingleton.getInstance().getShippingAddress(id);
 		this.invoicingAddress = CustomerDataAccessSingleton.getInstance().getInvoicingAddress(id);
+	}
+
+	Customer() throws CustomerException, DatabaseException {
+
 	}
 
 	// Checks if the shipping address is the same than the invoicing address
