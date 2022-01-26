@@ -6,17 +6,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-final public class CustomerDataAccessSingleton {
+final public class CustomerDataAccessSingleton implements CustomerDataAccessSigletonInterface {
 	
 	private static final String url = "jdbc:mysql://profundizacion.grise.upm.es:3306/customers";
 	private static final String username = "root";
 	private static final String password = "1234";
 	
-	private static CustomerDataAccessSingleton instance;
+	private static CustomerDataAccessSigletonInterface instance;
 
 	//
 	// Singleton access method
-	public static CustomerDataAccessSingleton getInstance() {
+	public static CustomerDataAccessSigletonInterface getInstance() {
 		
 		if (instance != null)
 			return instance;
@@ -35,6 +35,7 @@ final public class CustomerDataAccessSingleton {
 		
 	
 	// Get the shipping address from DB
+	@Override
 	public String getShippingAddress(int id) throws CustomerException, DatabaseException {
 		
 		return getAddress(id, "shippingAddress");
@@ -43,6 +44,7 @@ final public class CustomerDataAccessSingleton {
 	
 	//
 	// Get the invoicing address from DB
+	@Override
 	public String getInvoicingAddress(int id) throws CustomerException, DatabaseException {
 		
 		return getAddress(id, "invoicingAddress");

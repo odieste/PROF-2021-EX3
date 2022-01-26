@@ -8,7 +8,9 @@ public class smokeTest {
 	public void test() throws CustomerException, DatabaseException {
 		int CUSTOMERID = 1;
 		
-		Customer customer = new Customer(CUSTOMERID);
+		CustomerDataAccessSigletonInterface cdsi = new CustomerDataAccessSigletonImp();
+		
+		Customer customer = new Customer(CUSTOMERID,cdsi);
 	}
 
 }
