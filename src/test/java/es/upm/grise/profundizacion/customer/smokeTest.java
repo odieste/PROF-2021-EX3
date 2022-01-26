@@ -7,8 +7,8 @@ public class smokeTest {
 	@Test
 	public void test() throws CustomerException, DatabaseException {
 		int CUSTOMERID = 1;
-		
-		Customer customer = new Customer(CUSTOMERID);
+		CustomerDataAccessSingletonDouble cdas = new CustomerDataAccessSingletonDouble();
+		Customer customer = new Customer(CUSTOMERID, cdas);
 	}
 
 }
