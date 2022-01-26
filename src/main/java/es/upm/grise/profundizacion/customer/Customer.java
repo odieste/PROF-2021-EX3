@@ -10,6 +10,8 @@ public class Customer {
 	
 	// Invoicing address
 	 String invoicingAddress;
+
+
 	
 	// When the customer is created, the id and addresses are loaded from the database
 	Customer(int id) throws CustomerException, DatabaseException {
@@ -39,7 +41,7 @@ public class Customer {
 		while(index < stringLength &&
 			  shippingAddress.charAt(index) == invoicingAddress.charAt(index))
 			index++;
-		
+
 		if(index == stringLength)
 			return true;
 		else
