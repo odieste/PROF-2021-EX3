@@ -1,5 +1,8 @@
 package es.upm.grise.profundizacion.customer;
 
+import org.mockito.Mockito;
+import static org.mockito.Mockito.when;
+
 public class Customer {
 	
 	// Customer id
@@ -12,11 +15,33 @@ public class Customer {
 	private String invoicingAddress;
 	
 	// When the customer is created, the id and addresses are loaded from the database
-	Customer(int id) throws CustomerException, DatabaseException {
+	Customer(int id){
 		this.id = id;
+	}
+
+	public void customerInit() throws CustomerException, DatabaseException {
 		this.shippingAddress = CustomerDataAccessSingleton.getInstance().getShippingAddress(id);
 		this.invoicingAddress = CustomerDataAccessSingleton.getInstance().getInvoicingAddress(id);
 	}
+
+	public void customerInit_Test(String ship, String inv) throws CustomerException, DatabaseException {
+
+		// Aquí lo que hago es crearme mi propia instancia a mi manera y se la paso
+		CustomerDataAccessSingleton c = Mockito.mock(CustomerDataAccessSingleton.class);
+		CustomerDataAccessSingleton ca = CustomerDataAccessSingleton.getInstance();
+		when(c.getShippingAddress(id)).thenReturn(ship);
+		when(c.getInvoicingAddress(id)).thenReturn(inv);
+		ca.changeToMock(c);
+
+
+		this.shippingAddress = CustomerDataAccessSingleton.getInstance().getShippingAddress(id);
+		this.invoicingAddress = CustomerDataAccessSingleton.getInstance().getInvoicingAddress(id);
+
+		System.out.println("ship: " +this.shippingAddress+ ", inv: "+this.invoicingAddress);
+	}
+
+
+
 
 	// Checks if the shipping address is the same than the invoicing address
 	public boolean checkAddresses() throws NoAddressException, EmptyAddressException {
