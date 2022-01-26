@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-final public class CustomerDataAccessSingleton {
+public class CustomerDataAccessSingleton {
 	
 	private static final String url = "jdbc:mysql://profundizacion.grise.upm.es:3306/customers";
 	private static final String username = "root";
@@ -29,7 +29,7 @@ final public class CustomerDataAccessSingleton {
 
 	//
 	// Constructor
-	private CustomerDataAccessSingleton() {
+	CustomerDataAccessSingleton() {
 		
 	}
 		

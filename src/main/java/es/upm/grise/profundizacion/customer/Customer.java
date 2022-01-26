@@ -13,6 +13,7 @@ public class Customer {
 	
 	// When the customer is created, the id and addresses are loaded from the database
 	Customer(int id) throws CustomerException, DatabaseException {
+		CustomerDataAccessSingleton cda = new CustomerDataAccessSingleton();
 		this.id = id;
 		this.shippingAddress = CustomerDataAccessSingleton.getInstance().getShippingAddress(id);
 		this.invoicingAddress = CustomerDataAccessSingleton.getInstance().getInvoicingAddress(id);
