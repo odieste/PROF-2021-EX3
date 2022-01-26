@@ -11,18 +11,30 @@ package es.upm.grise.profundizacion.customer;
  */
 public class CustomerDataAccessSingletonDouble extends CustomerDataAccessSingleton{
     
+    protected String shippingAdress  = "Example shipping addres";
+    protected String invoicingAdress  = "Example invoicing adress";
     // Constructor
 	protected CustomerDataAccessSingletonDouble() {
 		super();
 	}
        
         public String getShippingAddress(int id) throws CustomerException, DatabaseException {
-            return "Example shipping addres";
+            return shippingAdress;
 		
 	}
         
         // Get the invoicing address from DB
 	public String getInvoicingAddress(int id) throws CustomerException, DatabaseException {	
-		return "Example invoicing adress";		
+		return invoicingAdress ;		
 	}
+
+    public void setShippingAdress(String shippingAdress) {
+        this.shippingAdress = shippingAdress;
+    }
+
+    public void setInvoicingAdress(String invoicingAdress) {
+        this.invoicingAdress = invoicingAdress;
+    }
+        
+        
 }

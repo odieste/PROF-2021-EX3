@@ -1,7 +1,7 @@
 package es.upm.grise.profundizacion.customer;
 
 public class Customer {
-	
+
 	// Customer id
 	private int id;
 	
