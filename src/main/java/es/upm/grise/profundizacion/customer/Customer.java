@@ -11,6 +11,7 @@ public class Customer {
 	// Invoicing address
 	private String invoicingAddress;
 	
+
 	// When the customer is created, the id and addresses are loaded from the database
 	Customer(int id) throws CustomerException, DatabaseException {
 		this.id = id;
@@ -41,4 +42,11 @@ public class Customer {
 		else
 			return false;
 	}	
+	
+	//We add the constructor for testable design
+	protected Customer(int id, String shippingAddress, String invoicingAddress) {
+		this.id = id;
+		this.shippingAddress = shippingAddress;
+		this.invoicingAddress = invoicingAddress;
+	}
 }

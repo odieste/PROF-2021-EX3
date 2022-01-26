@@ -29,7 +29,7 @@ final public class CustomerDataAccessSingleton {
 
 	//
 	// Constructor
-	private CustomerDataAccessSingleton() {
+	protected CustomerDataAccessSingleton() {
 		
 	}
 		
@@ -53,7 +53,7 @@ final public class CustomerDataAccessSingleton {
 	// Returns a String from a Customer record. Used to extract the addresses.
 	// In case of error, returns a generic "CustomerException" for customer-related problems
 	// For database problems, it returns a generic "DatabaseException"
-	private String getAddress(int id, String type) throws CustomerException, DatabaseException {
+	protected String getAddress(int id, String type) throws CustomerException, DatabaseException {
 		
 		String address = null;
 		int numHits = 0;
@@ -81,7 +81,7 @@ final public class CustomerDataAccessSingleton {
 
 	//
 	// Get the Customer record from DB
-	private ResultSet getCustomerData(int id) throws SQLException {
+	protected ResultSet getCustomerData(int id) throws SQLException {
 			
 		Connection connection = DriverManager.getConnection(url, username, password);
 		
