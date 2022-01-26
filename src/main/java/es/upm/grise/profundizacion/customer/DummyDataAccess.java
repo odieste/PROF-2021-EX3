@@ -9,7 +9,10 @@ public class DummyDataAccess implements CustomerDataAccess {
 
 	@Override
 	public String getInvoicingAddress(int id) throws CustomerException, DatabaseException {
-		return "Pepe";
+		if (id == 1)
+			return "Jose";
+		else 
+			return "Pepe";
 	}
 
 }
