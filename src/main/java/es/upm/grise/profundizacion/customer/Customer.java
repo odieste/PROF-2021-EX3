@@ -10,7 +10,13 @@ public class Customer {
 	
 	// Invoicing address
 	private String invoicingAddress;
-	
+
+	public Customer(int id, String shippingAddress, String invoicingAddress) {
+		this.id = id;
+		this.shippingAddress = shippingAddress;
+		this.invoicingAddress = invoicingAddress;
+	}
+
 	// When the customer is created, the id and addresses are loaded from the database
 	Customer(int id) throws CustomerException, DatabaseException {
 		this.id = id;
