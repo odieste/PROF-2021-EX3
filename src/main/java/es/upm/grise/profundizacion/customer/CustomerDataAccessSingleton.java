@@ -32,8 +32,8 @@ final public class CustomerDataAccessSingleton {
 	private CustomerDataAccessSingleton() {
 		
 	}
+		
 	
-	//
 	// Get the shipping address from DB
 	public String getShippingAddress(int id) throws CustomerException, DatabaseException {
 		

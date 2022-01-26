@@ -32,11 +32,11 @@ public class Customer {
 		int stringLength = shippingAddress.length();
 		int index = 0;
 		
-		while(shippingAddress.charAt(index) == invoicingAddress.charAt(index) && 
-			  index < stringLength)
+		while(index < stringLength &&
+			  shippingAddress.charAt(index) == invoicingAddress.charAt(index))
 			index++;
 		
-		if(index == stringLength - 1)
+		if(index == stringLength)
 			return true;
 		else
 			return false;
