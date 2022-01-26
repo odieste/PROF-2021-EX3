@@ -10,9 +10,7 @@ public class Customer {
 	
 	// Invoicing address
 	private String invoicingAddress;
-	
-	private CustomerDataAccessSingleton customerDataAccessSingleton = new CustomerDataAccessSingleton();
-	
+		
 	// When the customer is created, the id and addresses are loaded from the database
 	Customer(int id, CustomerDataAccessSingleton customerDataAccessSingleton) throws CustomerException, DatabaseException {
 		this.id = id;

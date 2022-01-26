@@ -22,8 +22,8 @@ public class smokeTest {
 	@Test
 	public void test() throws CustomerException, DatabaseException {
 		int CUSTOMERID = 1;
-		
-		//Customer customer = new Customer(CUSTOMERID);
+				
+		Customer customer = new Customer(CUSTOMERID, customerDataAccessSingleton);
 	}
 	
 	@Test
