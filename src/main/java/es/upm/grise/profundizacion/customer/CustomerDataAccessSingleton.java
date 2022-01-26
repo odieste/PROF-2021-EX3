@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-final public class CustomerDataAccessSingleton {
+public class CustomerDataAccessSingleton {
 	
 	private static final String url = "jdbc:mysql://profundizacion.grise.upm.es:3306/customers";
 	private static final String username = "root";
@@ -53,7 +53,7 @@ final public class CustomerDataAccessSingleton {
 	// Returns a String from a Customer record. Used to extract the addresses.
 	// In case of error, returns a generic "CustomerException" for customer-related problems
 	// For database problems, it returns a generic "DatabaseException"
-	public String getAddress(int id, String type) throws CustomerException, DatabaseException {
+	private String getAddress(int id, String type) throws CustomerException, DatabaseException {
 		
 		String address = null;
 		int numHits = 0;
