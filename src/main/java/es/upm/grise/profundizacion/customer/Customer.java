@@ -12,10 +12,10 @@ public class Customer {
 	private String invoicingAddress;
 	
 	// When the customer is created, the id and addresses are loaded from the database
-	Customer(int id) throws CustomerException, DatabaseException {
+	Customer(int id, CustomarDataAccess customerDAS) throws CustomerException, DatabaseException {
 		this.id = id;
-		this.shippingAddress = CustomerDataAccessSingleton.getInstance().getShippingAddress(id);
-		this.invoicingAddress = CustomerDataAccessSingleton.getInstance().getInvoicingAddress(id);
+		this.shippingAddress = customerDAS.getShippingAddress(id);
+		this.invoicingAddress = customerDAS.getInvoicingAddress(id);
 	}
 
 	// Checks if the shipping address is the same than the invoicing address
